@@ -1,0 +1,3 @@
+jamdict>=0.1a6
+pygame>=1.9.6
+romkan>=0.2.1
