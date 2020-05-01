@@ -24,6 +24,9 @@ This game was designed to help Japanese language learners practice those words i
 How to install
 ---------------
 
+Install Japanese fonts on your system.
+Instructions can be found [here](https://en.wikipedia.org/wiki/Help:Installing_Japanese_character_sets).
+
 Install the Python requirements:
 ```sh
 pip3 install -r requirements.txt

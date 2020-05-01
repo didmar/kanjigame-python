@@ -142,7 +142,7 @@ class Game:
         self.screen = pygame.display.set_mode((self.screen_w, self.screen_h), pygame.RESIZABLE)
         pygame.display.set_caption("Kanji game - Press ESC to quit")
 
-        font_family = 'umegothic'
+        font_family = get_font_family()
         self.small_font = pygame.font.SysFont(font_family, 24)
         self.font = pygame.font.SysFont(font_family, 48)
         self.large_font = pygame.font.SysFont(font_family, 80)
@@ -1016,6 +1016,19 @@ def conf_item_to_text(conf, conf_key):
         value_text = str(value)
 
     return key_text, value_text
+
+
+def get_font_family():
+    installed_fonts = set(pygame.font.get_fonts())
+    candidate_fonts = ["umegothic", "notosanscjkjp", "takaogothic", "takaomincho"]
+    for font in candidate_fonts:
+        if font in installed_fonts:
+            return font
+    raise Exception(
+        "Could not find a proper font to display Japanese characters ! "
+        "See the following page for instructions on how to install them: "
+        "https://en.wikipedia.org/wiki/Help:Installing_Japanese_character_sets"
+    )
 
 
 def main():
