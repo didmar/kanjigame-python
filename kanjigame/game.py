@@ -200,7 +200,7 @@ class Game:
         self.validated_user_input = None
         events = pygame.event.get()
         for event in events:
-            if event.type == pygame.QUIT:
+            if exit_event(event):
                 self.running = False
                 return
             elif event.type == pygame.VIDEORESIZE:
@@ -658,7 +658,7 @@ class Game:
         while not done:
             events = pygame.event.get()
             for event in events:
-                if event.type == pygame.QUIT:
+                if exit_event(event):
                     self.running = False
                     done = True
                     break
@@ -729,7 +729,7 @@ class Game:
         while True:
             events = pygame.event.get()
             for event in events:
-                if event.type == pygame.QUIT:
+                if exit_event(event):
                     pygame.quit()
                     sys.exit(0)
                 elif event.type == pygame.VIDEORESIZE:
@@ -824,7 +824,7 @@ class Game:
         while True:
             events = pygame.event.get()
             for event in events:
-                if event.type == pygame.QUIT or event.type == pygame.KEYDOWN:
+                if exit_event(event) or event.type == pygame.KEYDOWN:
                     return
             self.clock.tick(30)
 
@@ -1028,6 +1028,13 @@ def get_font_family():
         "Could not find a proper font to display Japanese characters ! "
         "See the following page for instructions on how to install them: "
         "https://en.wikipedia.org/wiki/Help:Installing_Japanese_character_sets"
+    )
+
+
+def exit_event(event):
+    return (
+        event.type == pygame.QUIT or
+        (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE)
     )
 
 
