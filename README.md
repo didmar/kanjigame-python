@@ -27,17 +27,20 @@ How to install
 Install Japanese fonts on your system.
 Instructions can be found [here](https://en.wikipedia.org/wiki/Help:Installing_Japanese_character_sets).
 
-Install the Python requirements:
+Use the following installation procedure for Debian/Ubuntu:
+
+Install Python, PIP and required dependencies:
 ```sh
-pip3 install -r requirements.txt
+sudo apt-get install python3-dev python3-pip
+python3 -m pip install -r requirements.txt --user
 ```
 
-Then, run the following script to download the dictionary files and import them 
+Run the following script to download the dictionary files and import them 
 ```sh
 ./download_dicts.sh
 ```
 
-Finally, you can run the game:
+Run the game:
 ```sh
 python3 -m kanjigame
 ```
