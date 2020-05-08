@@ -3,6 +3,8 @@ Kanji game
 
 An educational game to practice kanji-based Japanese words.
 
+![Screenshot](./kanji_game.jpeg?raw=true)
+
 Why ?
 ---------------
 
